@@ -12,7 +12,7 @@ export default {
 </script>
 
 <template>
-  <h1>Project Card</h1>
+  <h1>Projects</h1>
   <AppMain />
 
 </template>

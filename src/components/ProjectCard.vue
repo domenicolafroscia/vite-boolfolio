@@ -1,0 +1,33 @@
+<script>
+export default {
+    props: {
+        project: Object
+    },
+    data() {
+        return {
+            baseUrl: "http://127.0.0.1:8000",
+        }
+    },
+    computed: {
+        truncateText() {
+            if (this.project.content && this.project.content.length > 150) {
+                return this.project.content.substring(0, 150) + "...";
+            }
+            return this.project.content;
+        },
+    },
+}
+</script>
+
+<template>
+    <div class="card h-100">
+        <img :src="`${baseUrl}/storage/${project.cover_image}`" alt="" />
+        <div class="card-body">
+            <h5>{{ project.title }}</h5>
+            <span v-for="technologies in project.technologies" :key="technologies.id"> <span><strong>Technology:</strong> {{ technologies.name }}</span> </span>
+            <p class="my-2">{{ truncateText }}</p>
+        </div>
+    </div>
+</template>
+
+<style lang="scss" scoped></style>
