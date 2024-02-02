@@ -1,11 +1,13 @@
 <script>
+import { store } from '../store';
+
 export default {
     props: {
         project: Object
     },
     data() {
         return {
-            baseUrl: "http://127.0.0.1:8000",
+            store
         }
     },
     computed: {
@@ -21,7 +23,7 @@ export default {
 
 <template>
     <div class="card h-100">
-        <img :src="`${baseUrl}/storage/${project.cover_image}`" alt="" />
+        <img :src="`${store.baseUrl}/storage/${project.cover_image}`" alt="" />
         <div class="card-body">
             <h5>{{ project.title }}</h5>
             <span v-for="technologies in project.technologies" :key="technologies.id"> <span><strong>Technology:</strong> {{ technologies.name }}</span> </span>
