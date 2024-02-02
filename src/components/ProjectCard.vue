@@ -28,6 +28,8 @@ export default {
             <h5>{{ project.title }}</h5>
             <span v-for="technologies in project.technologies" :key="technologies.id"> <span><strong>Technology:</strong> {{ technologies.name }}</span> </span>
             <p class="my-2">{{ truncateText }}</p>
+
+            <router-link class="btn btn-primary" :to="{ name: 'single-project', params: {slug: project.slug} }">Details</router-link>
         </div>
     </div>
 </template>
