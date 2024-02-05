@@ -43,16 +43,19 @@ export default {
             <h3>Loading...</h3>
         </div>
         <div v-else>
-            <h1 class="text-center">Single Project</h1>
-            <div class="card h-100">
-                <img :src="`${store.baseUrl}/storage/${curProject.cover_image}`" alt="" />
-                <div class="card-body">
-                    <h5>{{ curProject.title }}</h5>
-                    <span v-for="technologies in curProject.technologies" :key="technologies.id">
-                        <span><strong>Technology:</strong> {{ technologies.name }}</span> </span>
-                    <p class="my-2">{{ truncateText }}</p>
+            <div v-if="curProject">
+                <h1 class="text-center">Single Project</h1>
+                <div class="card h-100">
+                    <img :src="`${store.baseUrl}/storage/${curProject.cover_image}`" alt="" />
+                    <div class="card-body">
+                        <h5>{{ curProject.title }}</h5>
+                        <span v-for="technologies in curProject.technologies" :key="technologies.id">
+                            <span><strong>Technology:</strong> {{ technologies.name }}</span> </span>
+                        <p class="my-2">{{ truncateText }}</p>
+                    </div>
                 </div>
             </div>
+
         </div>
 
     </div>
