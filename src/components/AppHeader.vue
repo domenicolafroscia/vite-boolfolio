@@ -37,4 +37,10 @@ export default {
     </nav>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.router-link-active {
+    color: lightblue;
+    text-decoration: underline;
+}
+
+</style>
